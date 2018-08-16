@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import VueRX from '../index'
+import VueRxloop from '../index'
 import { interval }from 'rxjs'
 import { pluck, map } from 'rxjs/operators'
 
-Vue.use(VueRX)
+Vue.use(VueRxloop({}))
 
 const vm1 = new Vue({
   el: '#app',
