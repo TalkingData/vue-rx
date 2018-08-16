@@ -9,18 +9,21 @@ import subscribeTo from './methods/subscribeTo'
 import eventToObservable from './methods/eventToObservable'
 import createObservableMethod from './methods/createObservableMethod'
 
-export default function VueRx (Vue) {
-  install(Vue)
-  Vue.mixin(rxMixin)
-  Vue.directive('stream', streamDirective)
-  Vue.prototype.$watchAsObservable = watchAsObservable
-  Vue.prototype.$fromDOMEvent = fromDOMEvent
-  Vue.prototype.$subscribeTo = subscribeTo
-  Vue.prototype.$eventToObservable = eventToObservable
-  Vue.prototype.$createObservableMethod = createObservableMethod
+export default function VueRxloop (app) {
+  return function init (Vue) {
+    install(Vue)
+    Vue.mixin(rxMixin)
+    Vue.directive('stream', streamDirective)
+    Vue.prototype.$io = app
+    Vue.prototype.$watchAsObservable = watchAsObservable
+    Vue.prototype.$fromDOMEvent = fromDOMEvent
+    Vue.prototype.$subscribeTo = subscribeTo
+    Vue.prototype.$eventToObservable = eventToObservable
+    Vue.prototype.$createObservableMethod = createObservableMethod
+  }
 }
 
 // auto install
 if (typeof Vue !== 'undefined') {
-  Vue.use(VueRx)
+  Vue.use(VueRxloop)
 }

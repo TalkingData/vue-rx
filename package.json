@@ -1,9 +1,9 @@
 {
-  "name": "vue-rx",
-  "version": "6.0.1",
+  "name": "vue-rxloop",
+  "version": "0.7.0",
   "description": "RxJS bindings for Vue",
-  "main": "dist/vue-rx.js",
-  "module": "dist/vue-rx.esm.js",
+  "main": "dist/vue-rxloop.js",
+  "module": "dist/vue-rxloop.esm.js",
   "sideEffects": false,
   "files": [
     "dist",
@@ -12,7 +12,7 @@
   "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-rx.git"
+    "url": "git+git@github.com:TalkingData/vue-rxloop.git"
   },
   "keywords": [
     "vue",
@@ -22,9 +22,9 @@
   "author": "Evan You",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vue-rx/issues"
+    "url": "https://github.com/TalkingData/vue-rxloop/issues"
   },
-  "homepage": "https://github.com/vuejs/vue-rx#readme",
+  "homepage": "https://github.com/TalkingData/vue-rxloop#readme",
   "scripts": {
     "dev": "rollup -c rollup.config.js -w",
     "build": "rollup -c rollup.config.js",

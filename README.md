@@ -1,4 +1,4 @@
-# vue-rx [![Build Status](https://circleci.com/gh/vuejs/vue-rx/tree/master.svg?style=shield)](https://circleci.com/gh/vuejs/vue-rx/tree/master)
+# vue-rxloop
 
 English | [简体中文](README-CN.md)
 
@@ -14,14 +14,21 @@ English | [简体中文](README-CN.md)
 **`rxjs` is required as a peer dependency.**
 
 ``` bash
-npm install vue vue-rx rxjs --save
+npm install vue vue-rxloop rxjs --save
 ```
 
 ``` js
 import Vue from 'vue'
-import VueRx from 'vue-rx'
+import VueRxloop from 'vue-rx'
+import rxloop from '@rxloop/core'
 
-Vue.use(VueRx)
+const app = rxloop();
+app.model({
+  name: 'user',
+  state: {}
+})
+
+Vue.use(VueRxloop(app))
 ```
 
 When bundling via webpack, `dist/vue-rx.esm.js` is used by default. It imports the minimal amount of Rx operators and ensures small bundle sizes.

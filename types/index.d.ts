@@ -31,4 +31,4 @@ declare module "vue/types/vue" {
   }
 }
 
-export default function VueRx(V: typeof Vue): void
+export default function VueRxloop(V: typeof Vue): void

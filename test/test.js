@@ -3,14 +3,16 @@
 'use strict'
 
 const Vue = require('vue/dist/vue.js')
-const VueRx = require('../dist/vue-rx.js')
+const VueRxloop = require('../dist/vue-rxloop.js')
 
 // library
 const { Observable } = require('rxjs')
 const { map, scan, pluck, merge, tap, filter, startWith } = require('rxjs/operators')
 
 Vue.config.productionTip = false
-Vue.use(VueRx)
+Vue.use(VueRxloop({
+  dispatch: true
+}))
 
 const nextTick = Vue.nextTick
 
@@ -34,6 +36,13 @@ function trigger (target, event) {
 function click (target) {
   trigger(target, 'click')
 }
+
+test('expose $io', () => {
+  const vm = new Vue({})
+  expect(vm.$io).toEqual({
+    dispatch: true
+  })
+})
 
 test('expose $observables', () => {
   const { ob, next } = mock()

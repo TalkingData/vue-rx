@@ -5,7 +5,7 @@ module.exports = [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/vue-rx.esm.js',
+      file: 'dist/vue-rxloop.esm.js',
       format: 'es'
     },
     plugins: [buble()],
@@ -17,7 +17,7 @@ module.exports = [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/vue-rx.js',
+      file: 'dist/vue-rxloop.js',
       format: 'umd',
       name: 'VueRx'
     },
