@@ -5,7 +5,7 @@ English | [简体中文](README-CN.md)
 [RxJS v6](https://github.com/ReactiveX/rxjs) integration for Vue.js.
 
 > **BREAKING CHANGES from 5.0**
-> - vue-rx v6 now only works with RxJS v6 by default. If you want to keep using RxJS v5 style code, install `rxjs-compat`.
+> - vue-rxloop now only works with RxJS v6 by default. If you want to keep using RxJS v5 style code, install `rxjs-compat`.
 
 ### Installation
 
@@ -19,8 +19,8 @@ npm install vue vue-rxloop rxjs --save
 
 ``` js
 import Vue from 'vue'
-import VueRxloop from 'vue-rx'
 import rxloop from '@rxloop/core'
+import VueRxloop from 'vue-rxloop'
 
 const app = rxloop();
 app.model({
@@ -31,18 +31,18 @@ app.model({
 Vue.use(VueRxloop(app))
 ```
 
-When bundling via webpack, `dist/vue-rx.esm.js` is used by default. It imports the minimal amount of Rx operators and ensures small bundle sizes.
+When bundling via webpack, `dist/vue-rxloop.esm.js` is used by default. It imports the minimal amount of Rx operators and ensures small bundle sizes.
 
 #### Global Script
 
-To use in a browser environment, use the UMD build `dist/vue-rx.js`. When in a browser environment, the UMD build assumes `window.rxjs` to be already present, so make sure to include `vue-rx.js` after Vue.js and RxJS. It also installs itself automatically if `window.Vue` is present.
+To use in a browser environment, use the UMD build `dist/vue-rxloop.js`. When in a browser environment, the UMD build assumes `window.rxjs` to be already present, so make sure to include `vue-rxloop.js` after Vue.js and RxJS. It also installs itself automatically if `window.Vue` is present.
 
 Example:
 
 ``` html
 <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.js"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="../dist/vue-rx.js"></script>
+<script src="../dist/vue-rxloop.js"></script>
 ```
 
 ### Usage
@@ -90,7 +90,7 @@ vm.$observables.msg.subscribe(msg => console.log(msg))
 
 ### `v-stream`: Streaming DOM Events
 
-`vue-rx` provides the `v-stream` directive which allows you to stream DOM events to an Rx Subject. The syntax is similar to `v-on` where the directive argument is the event name, and the binding value is the target Rx Subject.
+`vue-rxloop` provides the `v-stream` directive which allows you to stream DOM events to an Rx Subject. The syntax is similar to `v-on` where the directive argument is the event name, and the binding value is the target Rx Subject.
 
 ``` html
 <button v-stream:click="plus$">+</button>
@@ -219,7 +219,7 @@ const vm = new Vue({
   }
 })
 
-// vm.$once vue-rx version
+// vm.$once vue-rxloop version
 this.$eventToObservable('customEvent').pipe(
   take(1)
 )

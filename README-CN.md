@@ -1,4 +1,4 @@
-# vue-rx [![Build Status](https://circleci.com/gh/vuejs/vue-rx/tree/master.svg?style=shield)](https://circleci.com/gh/vuejs/vue-rx/tree/master)
+# vue-rxloop
 
 [English](README.md) | 简体中文
 
@@ -6,7 +6,7 @@
 
 > **相比 5.0 的不兼容变更**
 >
-> - vue-rx v6 现在默认只对 RxJS V6 生效。如果你想继续使用 RxJS v5 风格的代码，安装 `rxjs-compat`。
+> - vue-rxloop 现在默认只对 RxJS V6 生效。如果你想继续使用 RxJS v5 风格的代码，安装 `rxjs-compat`。
 
 ### 安装
 
@@ -15,28 +15,35 @@
 **`rxjs` 需要作为 peer dependency 引入。**
 
 ```bash
-npm install vue vue-rx rxjs --save
+npm install vue vue-rxloop rxjs --save
 ```
 
 ```js
-import Vue from 'vue';
-import VueRx from 'vue-rx';
+import Vue from 'vue'
+import rxloop from '@rxloop/core'
+import VueRxloop from 'vue-rxloop'
 
-Vue.use(VueRx);
+const app = rxloop();
+app.model({
+  name: 'user',
+  state: {}
+})
+
+Vue.use(VueRxloop(app))
 ```
 
-webpack 打包默认会使用 `dist/vue-rx.esm.js`。这样引入最小数量的 Rx 操作符并且保证了最小的打包体积。
+webpack 打包默认会使用 `dist/vue-rxloop.esm.js`。这样引入最小数量的 Rx 操作符并且保证了最小的打包体积。
 
 #### 全局脚本
 
-如果要在浏览器环境使用，需要引入 UMD 构建版本 `dist/vue-rx.js`。在浏览器环境中的 UMD 构建版本会假设 `window.rxjs` 已经存在，因此你需要确保在 Vue.js 和 RxJS 之后引入 `vue-rx.js`。如果 `window.Vue` 存在的话，`vue-rx` 会自动安装。
+如果要在浏览器环境使用，需要引入 UMD 构建版本 `dist/vue-rxloop.js`。在浏览器环境中的 UMD 构建版本会假设 `window.rxjs` 已经存在，因此你需要确保在 Vue.js 和 RxJS 之后引入 `vue-rxloop.js`。如果 `window.Vue` 存在的话，`vue-rxloop` 会自动安装。
 
 例子:
 
 ```html
 <script src="https://unpkg.com/rxjs/bundles/rxjs.umd.js"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="../dist/vue-rx.js"></script>
+<script src="../dist/vue-rxloop.js"></script>
 ```
 
 ### 如何使用
@@ -84,7 +91,7 @@ vm.$observables.msg.subscribe(msg => console.log(msg));
 
 ### `v-stream`：流式 DOM 事件
 
-`vue-rx` 提供 `v-stream` 让你向一个 Rx Subject 流式发送 DOM 事件。语法和 `v-on` 相似，指令参数对应事件名，绑定值对应 Rx Subject。
+`vue-rxloop` 提供 `v-stream` 让你向一个 Rx Subject 流式发送 DOM 事件。语法和 `v-on` 相似，指令参数对应事件名，绑定值对应 Rx Subject。
 
 ```html
 <button v-stream:click="plus$">+</button>
@@ -213,7 +220,7 @@ const vm = new Vue({
   }
 });
 
-// `vm.$once` 的 `vue-rx` 版本
+// `vm.$once` 的 `vue-rxloop` 版本
 this.$eventToObservable('customEvent').pipe(take(1));
 
 // 另一种取消订阅的方法：
