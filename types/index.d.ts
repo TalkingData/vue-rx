@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { WatchOptions } from 'vue'
 import { Observable } from 'rxjs'
+import { RxLoopInstance } from '@rxloop/core';
 
 export type Observables = Record<string, Observable<any>>
 declare module 'vue/types/options' {
@@ -18,6 +19,7 @@ export interface WatchObservable<T> {
 declare module "vue/types/vue" {
   interface Vue {
     $observables: Observables;
+    $io: RxLoopInstance;
     $watchAsObservable(expr: string, options?: WatchOptions): Observable<WatchObservable<any>>
     $watchAsObservable<T>(fn: (this: this) => T, options?: WatchOptions): Observable<WatchObservable<T>>
     $eventToObservable(event: string): Observable<{name: string, msg: any}>
