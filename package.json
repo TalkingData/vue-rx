@@ -1,6 +1,6 @@
 {
   "name": "vue-rxloop",
-  "version": "0.7.2",
+  "version": "0.12.0",
   "description": "RxJS bindings for Vue",
   "main": "dist/vue-rxloop.js",
   "module": "dist/vue-rxloop.esm.js",

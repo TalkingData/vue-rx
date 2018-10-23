@@ -22,13 +22,13 @@ import Vue from 'vue'
 import rxloop from '@rxloop/core'
 import VueRxloop from 'vue-rxloop'
 
-const app = rxloop();
-app.model({
+const store = rxloop();
+store.model({
   name: 'user',
   state: {}
 })
 
-Vue.use(VueRxloop(app))
+Vue.use(VueRxloop(store))
 ```
 
 When bundling via webpack, `dist/vue-rxloop.esm.js` is used by default. It imports the minimal amount of Rx operators and ensures small bundle sizes.

@@ -37,9 +37,9 @@ function click (target) {
   trigger(target, 'click')
 }
 
-test('expose $io', () => {
+test('expose $store', () => {
   const vm = new Vue({})
-  expect(vm.$io).toEqual({
+  expect(vm.$store).toEqual({
     dispatch: true
   })
 })
