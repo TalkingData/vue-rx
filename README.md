@@ -1,6 +1,17 @@
-# vue-rxloop
-
 English | [简体中文](README-CN.md)
+
+# vue-rxloop [![NPM version][npm-image]][npm-url] [![npm download][download-image]][download-url] [![Build Status][build-status-image]][build-status-url] [![codecov status][codecov-image]][codecov-url] [![license][license-image]][license-url]
+
+[npm-image]: https://img.shields.io/npm/v/vue-rxloop.svg?style=shield&colorB=brightgreen
+[npm-url]: https://npmjs.org/package/vue-rxloop
+[download-image]: https://img.shields.io/npm/dm/vue-rxloop.svg?style=shield&colorB=brightgreen
+[download-url]: https://npmjs.org/package/vue-rxloop
+[build-status-image]: https://circleci.com/gh/TalkingData/vue-rxloop/tree/master.png?style=shield&colorB=brightgreen
+[build-status-url]: https://circleci.com/gh/TalkingData/vue-rxloop
+[codecov-image]: https://img.shields.io/codecov/c/github/TalkingData/vue-rxloop/master.svg?style=shield&colorB=brightgreen
+[codecov-url]: https://codecov.io/github/TalkingData/vue-rxloop?branch=master
+[license-image]: https://img.shields.io/npm/l/vue-rxloop.svg?style=shield&colorB=brightgreen&longCache=true
+[license-url]: https://github.com/TalkingData/vue-rxloop/blob/master/LICENSE
 
 [RxJS v6](https://github.com/ReactiveX/rxjs) integration for Vue.js.
 
