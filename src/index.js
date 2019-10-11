@@ -21,6 +21,7 @@ export default function VueRxloop (store) {
     Vue.prototype.$subscribeTo = subscribeTo
     Vue.prototype.$eventToObservable = eventToObservable
     Vue.prototype.$createObservableMethod = createObservableMethod
+    Vue.config.optionMergeStrategies.subscriptions = Vue.config.optionMergeStrategies.data
   }
 }
 
